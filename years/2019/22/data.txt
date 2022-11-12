@@ -1,100 +1,100 @@
-cut 4753
-deal with increment 64
-cut 9347
-deal with increment 64
-cut 4913
-deal with increment 33
-cut 6371
-deal with increment 53
-cut -7660
-deal with increment 65
-cut 7992
-deal with increment 29
-cut 7979
-deal with increment 28
-cut -6056
-deal with increment 5
-cut -3096
-deal with increment 13
-cut -4315
-deal with increment 52
-cut 2048
+deal with increment 10
+cut -5908
+deal with increment 75
+cut 8705
+deal with increment 49
+cut -1609
+deal with increment 69
+cut 7797
 deal into new stack
-cut 9126
+cut -6211
+deal with increment 10
+cut 6188
+deal with increment 57
+cut -1659
+deal with increment 16
+cut -5930
+deal into new stack
+cut -2758
+deal with increment 33
+cut -3275
+deal with increment 39
+cut -1301
+deal with increment 50
+cut 7837
+deal with increment 74
+cut 1200
+deal with increment 23
+deal into new stack
+cut -9922
+deal with increment 65
+cut 4896
+deal with increment 61
+deal into new stack
+cut 5945
+deal with increment 9
+deal into new stack
+deal with increment 2
+cut -8205
+deal with increment 75
+cut -4063
+deal with increment 40
+deal into new stack
+cut -7366
+deal with increment 51
+cut 7213
+deal into new stack
+cut 4763
+deal with increment 43
+cut 3963
+deal with increment 50
+cut -8856
+deal with increment 43
+cut 8604
+deal with increment 72
+cut -7026
+deal into new stack
+deal with increment 25
+cut 7843
+deal with increment 71
+cut -1272
+deal with increment 64
+cut 7770
+deal with increment 18
+cut -5278
 deal with increment 67
 deal into new stack
-cut -4398
-deal with increment 29
-cut 5230
-deal with increment 30
-cut 1150
-deal with increment 41
-cut 668
+deal with increment 18
 deal into new stack
-cut -7265
-deal with increment 69
-deal into new stack
-deal with increment 38
-cut -8498
-deal with increment 68
-deal into new stack
-deal with increment 30
-cut -1108
-deal with increment 7
-cut 5875
-deal with increment 13
-cut -8614
-deal with increment 44
-cut -9866
-deal with increment 2
-cut 2582
-deal with increment 43
-cut 6628
-deal with increment 59
-deal into new stack
-cut 7514
-deal into new stack
-cut -115
+cut 2216
+deal with increment 42
+cut 3206
 deal with increment 14
-cut 2844
-deal with increment 4
-cut 6564
-deal with increment 23
-cut -8148
+deal into new stack
+cut -6559
+deal into new stack
 deal with increment 12
-cut -81
-deal with increment 2
-cut 9928
-deal with increment 8
-cut 3174
-deal with increment 28
 deal into new stack
-cut 6259
-deal with increment 3
-cut 1863
-deal with increment 34
+deal with increment 75
 deal into new stack
-cut 4751
-deal into new stack
-cut -7394
-deal with increment 59
-deal into new stack
-deal with increment 28
-deal into new stack
-deal with increment 59
-cut -848
-deal with increment 19
-deal into new stack
-cut -575
-deal with increment 60
-deal into new stack
-deal with increment 74
-cut 514
-deal into new stack
-cut 8660
-deal with increment 3
-cut 5325
 deal with increment 41
+cut 7378
+deal with increment 44
+cut 774
+deal with increment 60
+cut 7357
+deal with increment 41
+cut 479
+deal with increment 40
+cut 5146
+deal with increment 13
+cut 2017
 deal into new stack
-deal with increment 10
+deal with increment 35
+cut 9218
 deal into new stack
+deal with increment 22
+cut -2462
+deal with increment 23
+cut -1820
+deal with increment 69

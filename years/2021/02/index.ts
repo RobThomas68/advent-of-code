@@ -4,55 +4,103 @@ import * as test from "../../../util/test";
 import chalk from "chalk";
 import { log, logSolution, trace } from "../../../util/log";
 import { performance } from "perf_hooks";
+import { TupleType } from "typescript";
 
 const YEAR = 2021;
 const DAY = 2;
 
-// solution path: C:\Users\trgau.NORTHAMERICA\dev\t-hugs\advent-of-code\years\2021\02\index.ts
-// data path    : C:\Users\trgau.NORTHAMERICA\dev\t-hugs\advent-of-code\years\2021\02\data.txt
+// solution path: /home/rob/Workspaces/advent-of-code/years/2021/02/index.ts
+// data path    : /home/rob/Workspaces/advent-of-code/years/2021/02/data.txt
 // problem url  : https://adventofcode.com/2021/day/2
 
+class Submarine {
+	depth: number = 0;
+	horizontal_position: number = 0;
+	aim: number = 0;
+	cmdMove(distance: number) {
+		this.horizontal_position += distance;
+	}
+	cmdDive(depth: number) {
+		this.depth += depth;
+	}
+	cmdAim(value: number) {
+		this.aim += value;
+	}
+}
+
+type CommandType = [action: string, value: number];
+
+function getCommands(input: string): Array<CommandType> {
+	let commands = new Array<CommandType>();
+	for (const line of input.split("\n")) {
+		const [action, value] = line.split(" ");
+		commands.push([action, Number(value)]);
+	}
+	return commands;
+}
+
 async function p2021day2_part1(input: string, ...params: any[]) {
-	const lines = input.split("\n");
-	let depth = 0;
-	let horiz = 0;
-	for (const line of lines) {
-		const [dir, _qty] = line.split(" ");
-		const qty = Number(_qty);
-		if (dir === "forward") {
-			horiz += qty;
-		} else if (dir === "down") {
-			depth += qty;
-		} else if (dir === "up") {
-			depth -= qty;
+	let submarine: Submarine = new Submarine();
+	for (const [action, value] of getCommands(input)) {
+		switch (action) {
+			case "forward":
+				submarine.cmdMove(value);
+				break;
+			case "up":
+				submarine.cmdDive(-value);
+				break;
+			case "down":
+				submarine.cmdDive(value);
+				break;
 		}
 	}
-	return horiz * depth;
+	return submarine.depth * submarine.horizontal_position;
 }
 
 async function p2021day2_part2(input: string, ...params: any[]) {
-	const lines = input.split("\n");
-	let depth = 0;
-	let horiz = 0;
-	let aim = 0;
-	for (const line of lines) {
-		const [dir, _qty] = line.split(" ");
-		const qty = Number(_qty);
-		if (dir === "forward") {
-			horiz += qty;
-			depth += qty * aim;
-		} else if (dir === "down") {
-			aim += qty;
-		} else if (dir === "up") {
-			aim -= qty;
+	let submarine: Submarine = new Submarine();
+	for (const [action, value] of getCommands(input)) {
+		switch (action) {
+			case "forward":
+				submarine.cmdMove(value);
+				submarine.cmdDive(submarine.aim * value);
+				break;
+			case "up":
+				submarine.cmdAim(-value);
+				break;
+			case "down":
+				submarine.cmdAim(value);
+				break;
 		}
 	}
-	return horiz * depth;
+	return submarine.depth * submarine.horizontal_position;
 }
 
 async function run() {
-	const part1tests: TestCase[] = [];
-	const part2tests: TestCase[] = [];
+	const part1tests: TestCase[] = [
+		{
+			input: `forward 5
+down 5
+forward 8
+up 3
+down 8
+forward 2`,
+			extraArgs: [],
+			expected: `150`,
+		},
+	];
+	const part2tests: TestCase[] = [
+		{
+			input: `forward 5
+down 5
+forward 8
+up 3
+down 8
+forward 2`,
+			extraArgs: [],
+			expected: `900`,
+		},
+	];
 
 	// Run tests
 	test.beginTests();

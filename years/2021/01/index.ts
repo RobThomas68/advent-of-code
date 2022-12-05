@@ -4,45 +4,40 @@ import * as test from "../../../util/test";
 import chalk from "chalk";
 import { log, logSolution, trace } from "../../../util/log";
 import { performance } from "perf_hooks";
+import { convertCompilerOptionsFromJson } from "typescript";
 
 const YEAR = 2021;
 const DAY = 1;
 
-// solution path: C:\Users\trgau.NORTHAMERICA\dev\t-hugs\advent-of-code\years\2021\01\index.ts
-// data path    : C:\Users\trgau.NORTHAMERICA\dev\t-hugs\advent-of-code\years\2021\01\data.txt
+// solution path: /home/rob/Workspaces/advent-of-code/years/2021/01/index.ts
+// data path    : /home/rob/Workspaces/advent-of-code/years/2021/01/data.txt
 // problem url  : https://adventofcode.com/2021/day/1
 
 async function p2021day1_part1(input: string, ...params: any[]) {
+	let previous = Number.MAX_SAFE_INTEGER;
 	let count = 0;
-	const lines = input.split("\n");
-	let prev = Number.MAX_SAFE_INTEGER;
+	const lines: number[] = input.split("\n").map(i => Number(i));
 	for (const line of lines) {
-		const num = Number(line);
-		if (num > prev) {
-			count++;
+		if (line > previous) {
+			count += 1;
 		}
-		prev = num;
+		previous = line;
 	}
 	return count;
 }
 
+let sum = (a: number, b: number) => {
+	return a + b;
+};
+
 async function p2021day1_part2(input: string, ...params: any[]) {
 	let count = 0;
-	const lines = input.split("\n");
-	let n0: number = 0;
-	let n1: number = 0;
-	let n2: number = 0;
-	let prev: number = Number.MAX_SAFE_INTEGER;
-	for (const line of lines) {
-		n2 = n1;
-		n1 = n0;
-		n0 = Number(line);
-		if (n0 * n1 * n2 !== 0) {
-			const sum = n0 + n1 + n2;
-			if (sum > prev) {
-				count++;
-			}
-			prev = sum;
+	const lines: number[] = input.split("\n").map(i => Number(i));
+	for (let i = 0; i < lines.length - 3; i++) {
+		let sum1 = lines.slice(i + 1, i + 4).reduce(sum, 0);
+		let sum2 = lines.slice(i, i + 3).reduce(sum, 0);
+		if (sum1 > sum2) {
+			count += 1;
 		}
 	}
 	return count;

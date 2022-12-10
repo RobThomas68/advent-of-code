@@ -444,7 +444,10 @@ export class Grid {
 		const flipV = direction === "vertical" || direction === "both";
 		for (let i = 0; i < this.rowCount; ++i) {
 			for (let j = 0; j < this.colCount; ++j) {
-				newGrid.setCell([flipV ? this.rowCount - i - 1 : i, flipH ? this.colCount - j - 1 : j], this.getValue([i, j]));
+				newGrid.setCell(
+					[flipV ? this.rowCount - i - 1 : i, flipH ? this.colCount - j - 1 : j],
+					this.getValue([i, j])
+				);
 			}
 		}
 		return newGrid;
@@ -718,6 +721,19 @@ export class Cell {
 	}
 
 	/**
+	 * Returns true if this cell is on an edge of the grid.
+	 */
+	public isEdge() {
+		// return this.isNorthEdge() || this.isEastEdge() || this.isSouthEdge() || this.isWestEdge();
+		return (
+			this.position[0] === 0 ||
+			this.position[1] === 0 ||
+			this.position[0] === this.grid.rowCount - 1 ||
+			this.position[1] === this.grid.colCount - 1
+		);
+	}
+
+	/**
 	 * Returns true if this cell is on the top row of the grid.
 	 */
 	public isNorthEdge() {
@@ -822,8 +838,10 @@ if (require.main === module) {
 	});
 	botHalf1.log();
 
-	const toRotate = new Grid({serialized: `1234
-5678`});
+	const toRotate = new Grid({
+		serialized: `1234
+5678`,
+	});
 	toRotate.log(false);
 	const rotate1 = toRotate.rotate(1);
 	rotate1.log(false);
